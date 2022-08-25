@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "791409646526",
-    "project_id": "first-priority-app-f8bfb",
-    "storage_bucket": "first-priority-app-f8bfb.appspot.com"
+    "project_number": "179716613717",
+    "project_id": "first-priority-app-national",
+    "storage_bucket": "first-priority-app-national.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:791409646526:android:4dbd1359ac21e6316b77ef",
+        "mobilesdk_app_id": "1:179716613717:android:5dd9b0a79e553a117416dc",
         "android_client_info": {
-          "package_name": "com.firstpriority.core.app"
+          "package_name": "app.firstpriority.national"
         }
       },
       "oauth_client": [
         {
-          "client_id": "791409646526-posiai85lu9c9l0t41rfk3qn5jrhekda.apps.googleusercontent.com",
+          "client_id": "179716613717-nadjcsqnasvb7790albo5di7f8irkecj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDcqUFaL7lFDD9ofpxJwIF-B6HM-yem4w0"
+          "current_key": "AIzaSyC7dLGpEze9QA1mnRhPXWp50TS385GP6vw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "791409646526-posiai85lu9c9l0t41rfk3qn5jrhekda.apps.googleusercontent.com",
+              "client_id": "179716613717-nadjcsqnasvb7790albo5di7f8irkecj.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "179716613717-cmjlaagnrjifutk0v85f9fh4ugm6vm39.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.firstpriority.national",
+                "app_store_id": "1639015498"
+              }
             }
           ]
         }
