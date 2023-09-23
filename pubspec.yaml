@@ -2,7 +2,7 @@
 name: first_priority_app
 description: "The official First Priority of South Florida App"
 publish_to: 'none'
-version: 1.0.8+15
+version: 1.0.9+16
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
