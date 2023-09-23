@@ -11,56 +11,57 @@ class UpcomingEventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Card(
-        semanticContainer: true,
-        margin: EdgeInsets.all(8),
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SubtitleText("DON'T MISS ANYTHING"),
-              TitleText("Upcoming Meetings"),
-              SizedBox(
-                height: 10,
+    return Card(
+      semanticContainer: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, top: 15, right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SubtitleText("DON'T MISS ANYTHING"),
+                  TitleText("Upcoming Meetings"),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
-              FutureBuilder<List<Meeting>>(
-                future: _meetingController.getUpcoming(),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-
-                  if (snapshot.data.isEmpty) {
-                    return Center(
-                      child: SubtitleText(
-                        "No Upcoming Meetings",
-                        fontSize: 18,
-                      ),
-                    );
-                  }
-
-                  return Column(
-                    children: List.generate(snapshot.data.length, (index) {
-                      return Container(
-                        child: MeetingPreview(
-                          meeting: snapshot.data[index],
-                        ),
-                      );
-                    }),
+            ),
+            FutureBuilder<List<Meeting>>(
+              future: _meetingController.getUpcoming(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(),
                   );
-                },
-              ),
-            ],
-          ),
+                }
+
+                if (snapshot.data.isEmpty) {
+                  return Center(
+                    child: SubtitleText(
+                      "No Upcoming Meetings",
+                      fontSize: 18,
+                    ),
+                  );
+                }
+
+                return Column(
+                  children: List.generate(snapshot.data.length, (index) {
+                    return MeetingPreview(
+                      meeting: snapshot.data[index],
+                    );
+                  }),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

@@ -7,14 +7,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            DevotionalCard(),
-            UpcomingEventCard(),
-            NotificationsCard(),
-          ],
-        ),
+      padding: EdgeInsets.all(4),
+      child: Wrap(
+        children: [
+          DevotionalCard(),
+          UpcomingEventCard(),
+          NotificationsCard(),
+        ],
       ),
     );
   }

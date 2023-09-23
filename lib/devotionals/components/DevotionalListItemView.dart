@@ -15,27 +15,25 @@ class DevotionalListItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        children: [
-          Card(
-            margin: EdgeInsets.only(bottom: 5),
-            semanticContainer: true,
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: Column(
-              children: [
-                if (devotional.imageUrl != null &&
-                    devotional.imageUrl.isNotEmpty)
-                  Image(
-                    image: CachedNetworkImageProvider(devotional.imageUrl),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
+    return Column(
+      children: [
+        Card(
+          semanticContainer: true,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          child: Column(
+            children: [
+              if (devotional.imageUrl != null && devotional.imageUrl.isNotEmpty)
+                Image(
+                  image: CachedNetworkImageProvider(devotional.imageUrl),
+                ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -51,8 +49,10 @@ class DevotionalListItemView extends StatelessWidget {
                                 "${dateFormat.format(devotional.startDate)} - ${dateFormat.format(devotional.endDate)}")
                         ],
                       ),
-                      if (devotional.planUrl != null)
-                        PillButton(
+                    ),
+                    if (devotional.planUrl != null)
+                      Flexible(
+                        child: PillButton(
                           child: Text('READ'),
                           onTap: () {
                             if (devotional.planUrl != null &&
@@ -66,18 +66,18 @@ class DevotionalListItemView extends StatelessWidget {
                               );
                             }
                           },
-                        )
-                    ],
-                  ),
-                )
-              ],
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
+                        ),
+                      )
+                  ],
+                ),
+              )
+            ],
           ),
-        ],
-      ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+      ],
     );
   }
 }

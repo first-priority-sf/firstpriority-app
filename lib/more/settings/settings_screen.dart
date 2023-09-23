@@ -1,5 +1,4 @@
 import 'package:first_priority_app/notifiers/theme_notifier.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:first_priority_app/widgets/dialogs/select_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +14,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: "Settings",
+      appBar: AppBar(
+        title: Text("Settings"),
       ),
       body: ListView(
         children: ListTile.divideTiles(

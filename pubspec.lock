@@ -205,10 +205,12 @@ packages:
   flutter_local_notifications:
     dependency: "direct main"
     description:
-      name: flutter_local_notifications
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.1+2"
+      path: flutter_local_notifications
+      ref: "v4.0.1+4"
+      resolved-ref: "06dbda26cf009aa6cdd0468af7bb6eb283956dc2"
+      url: "https://github.com/first-priority-sf/flutter_local_notifications.git"
+    source: git
+    version: "4.0.1+3"
   flutter_local_notifications_platform_interface:
     dependency: transitive
     description:
@@ -530,6 +532,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  sliver_fill_remaining_box_adapter:
+    dependency: "direct main"
+    description:
+      name: sliver_fill_remaining_box_adapter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   source_span:
     dependency: transitive
     description:

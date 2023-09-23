@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:first_priority_app/Constants.dart';
 import 'package:first_priority_app/storage_manager.dart';
 import 'package:flutter/material.dart';
 
 class ThemeNotifier with ChangeNotifier {
   static final ThemeData darkTheme = buildTheme(
+    brightness: Brightness.dark,
     colorScheme: ColorScheme.dark(
       // primary: Color.fromARGB(255, 0, 33, 91),
       // primaryVariant: Colors.pink,
@@ -38,6 +41,7 @@ class ThemeNotifier with ChangeNotifier {
   );
 
   static final ThemeData lightTheme = buildTheme(
+    brightness: Brightness.light,
     colorScheme: ColorScheme.light(
       primary: Color.fromARGB(255, 0, 33, 91),
       primaryVariant: Color.fromARGB(255, 0, 22, 61),
@@ -109,6 +113,7 @@ class ThemeNotifier with ChangeNotifier {
 }
 
 ThemeData buildTheme({
+  Brightness brightness,
   ColorScheme colorScheme,
   Color surfaceBright,
   TextStyle headline1,
@@ -123,6 +128,7 @@ ThemeData buildTheme({
   Color dividerColor,
 }) {
   return ThemeData(
+    brightness: brightness,
     fontFamily: 'Schyler',
     backgroundColor: colorScheme.background,
     scaffoldBackgroundColor: colorScheme.background,
@@ -161,7 +167,7 @@ ThemeData buildTheme({
     dividerColor: dividerColor,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         elevation: 2,
         primary: colorScheme.primary,
         minimumSize: Size(double.infinity, 40),
@@ -180,10 +186,10 @@ ThemeData buildTheme({
       selectedItemColor: colorScheme.primary,
     ),
     appBarTheme: AppBarTheme(
-      foregroundColor: colorScheme.onBackground,
-      iconTheme: IconThemeData(color: colorScheme.onBackground),
-      titleTextStyle: TextStyle(color: colorScheme.onBackground),
-      color: Color.fromARGB(255, 210, 210, 210),
+      foregroundColor: colorScheme.onSurface,
+      color: colorScheme.surface,
+      centerTitle: true,
+      toolbarHeight: Platform.isIOS ? 48 : null,
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(

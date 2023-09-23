@@ -2,12 +2,14 @@ import 'package:first_priority_app/controllers/school.dart';
 import 'package:first_priority_app/devotionals/devotionals_screen.dart';
 import 'package:first_priority_app/meetings/meeting_screen.dart';
 import 'package:first_priority_app/more/more_screen.dart';
+import 'package:first_priority_app/widgets/fab_mixin.dart';
 import 'package:first_priority_app/widgets/header_app_bar.dart';
 import 'controller/MainDashboardController.dart';
 import 'package:first_priority_app/home/homeScreen/HomeScreen.dart';
 import 'package:first_priority_app/resources/resources_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sliver_fill_remaining_box_adapter/sliver_fill_remaining_box_adapter.dart';
 
 class MainDashBoard extends StatelessWidget {
   final MainDashboardController _mainDashboardController =
@@ -24,14 +26,35 @@ class MainDashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _items = buildItems(context);
+    final _items = _buildItems(context);
     return Obx(
       () => Scaffold(
-        appBar: HeaderAppBar(
-          title: _items[_mainDashboardController.currentIndex.value].label,
-          subtitle: _schoolController.school.value.name,
+        floatingActionButton:
+            (_pageOptions[_mainDashboardController.currentIndex.value]
+                    is FabMixin)
+                ? (_pageOptions[_mainDashboardController.currentIndex.value]
+                        as FabMixin)
+                    .buildFab(context)
+                : null,
+        body: CustomScrollView(
+          slivers: [
+            SliverSafeArea(
+              sliver: SliverPadding(
+                padding: EdgeInsets.only(bottom: 8),
+                sliver: SliverToBoxAdapter(
+                  child: HeaderAppBar(
+                    title: _items[_mainDashboardController.currentIndex.value]
+                        .label,
+                    subtitle: _schoolController.school.value.name,
+                  ),
+                ),
+              ),
+            ),
+            SliverFillRemainingBoxAdapter(
+              child: _pageOptions[_mainDashboardController.currentIndex.value],
+            )
+          ],
         ),
-        body: _pageOptions[_mainDashboardController.currentIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           items: _items,
           type: BottomNavigationBarType.fixed,
@@ -45,7 +68,7 @@ class MainDashBoard extends StatelessWidget {
     );
   }
 
-  List<BottomNavigationBarItem> buildItems(BuildContext context) {
+  List<BottomNavigationBarItem> _buildItems(BuildContext context) {
     return [
       BottomNavigationBarItem(
         icon: Icon(

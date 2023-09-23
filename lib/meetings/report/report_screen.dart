@@ -2,7 +2,6 @@ import 'package:first_priority_app/controllers/api.dart';
 import 'package:first_priority_app/controllers/school.dart';
 import 'package:first_priority_app/models/meeting.dart';
 import 'package:first_priority_app/validators.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:first_priority_app/widgets/loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,8 +39,8 @@ class _ReportScreenState extends State<ReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: "Meeting Report",
+      appBar: AppBar(
+        title: Text("Meeting Report"),
       ),
       body: SingleChildScrollView(
         child: Form(

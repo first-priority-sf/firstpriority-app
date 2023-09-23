@@ -28,13 +28,18 @@ dependencies:
   mask_text_input_formatter: ^2.0.0
   hexcolor: ^2.0.6
   flutter_speed_dial: ^3.0.5
-  flutter_local_notifications: ^4.0.1+2
+  flutter_local_notifications:
+    git:
+      url: https://github.com/first-priority-sf/flutter_local_notifications.git
+      path: flutter_local_notifications
+      ref: v4.0.1+4
   syncfusion_flutter_pdfviewer: 18.4.49-beta
   confirm_dialog: ^1.0.0
   package_info: ^2.0.2
   sembast: ^3.1.2
   path: ^1.8.0
   flutter_dotenv: ^5.0.2
+  sliver_fill_remaining_box_adapter: ^1.0.0
 
 
 dev_dependencies:

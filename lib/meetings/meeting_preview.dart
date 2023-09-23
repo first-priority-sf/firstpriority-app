@@ -40,7 +40,7 @@ class MeetingPreview extends StatelessWidget {
             height: 60,
             width: 70,
             child: Material(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(4),
               shadowColor: Colors.black12,
               color: Theme.of(context).secondaryHeaderColor,
               elevation: 5,

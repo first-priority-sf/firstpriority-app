@@ -12,23 +12,28 @@ class ResourcesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Resource>>(
-      future: _resourcesController.get(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: FutureBuilder<List<Resource>>(
+        future: _resourcesController.get(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
 
-        return ListView.builder(
-          padding: EdgeInsets.zero,
-          itemCount: snapshot.data.length,
-          itemBuilder: (BuildContext ctx, int index) {
-            return resourceWidget(snapshot.data[index]);
-          },
-        );
-      },
+          return Wrap(
+            runSpacing: 4,
+            children: List.generate(
+              snapshot.data.length,
+              (int index) {
+                return resourceWidget(snapshot.data[index]);
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -42,9 +47,8 @@ class ResourcesScreen extends StatelessWidget {
           image: CachedNetworkImageProvider(resource.imageUrl),
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(4),
         ),
-        margin: EdgeInsets.all(4),
       ),
       onTap: () => launch(resource.url),
     );

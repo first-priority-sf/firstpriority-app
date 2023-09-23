@@ -28,7 +28,7 @@ class NotificationsCard extends StatelessWidget {
               semanticContainer: true,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(4),
               ),
               child: Padding(
                   padding: const EdgeInsets.all(15),

@@ -6,7 +6,6 @@ import 'package:first_priority_app/meetings/order/order_screen.dart';
 import 'package:first_priority_app/meetings/report/report_screen.dart';
 import 'package:first_priority_app/models/meeting.dart';
 import 'package:first_priority_app/models/meeting_role.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:first_priority_app/widgets/dialogs/select_dialog.dart';
 import 'package:first_priority_app/widgets/loading_dialog.dart';
 import 'package:first_priority_app/widgets/pdf_viewer_screen.dart';
@@ -49,8 +48,8 @@ class _MeetingDetailsState extends State<MeetingDetails> {
     final Meeting meeting = widget.meeting;
 
     return Scaffold(
-      appBar: BackAppBar(
-        title: "Meeting Details",
+      appBar: AppBar(
+        title: Text("Meeting Details"),
       ),
       floatingActionButton: PolicyBuilder(
         policy: Policy.manageMeetings,
@@ -64,8 +63,8 @@ class _MeetingDetailsState extends State<MeetingDetails> {
       ),
       body: SingleChildScrollView(
         physics: AlwaysScrollableScrollPhysics(),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Padding(
+          padding: EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -181,7 +180,8 @@ class _MeetingDetailsState extends State<MeetingDetails> {
   }
 
   Widget _buildSpeedDial(BuildContext context) {
-    final labelStyle = TextStyle(color: Theme.of(context).textTheme.headline1.color);
+    final labelStyle =
+        TextStyle(color: Theme.of(context).textTheme.headline1.color);
     final labelBackground = Theme.of(context).cardColor;
     return SpeedDial(
       foregroundColor:

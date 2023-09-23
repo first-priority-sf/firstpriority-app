@@ -89,7 +89,7 @@ class _GenericListState<T> extends State<GenericList<T>> {
                   direction: DismissDirection.endToStart,
                   background: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(4),
                       color: Colors.red,
                     ),
                     alignment: Alignment(0.9, 0),

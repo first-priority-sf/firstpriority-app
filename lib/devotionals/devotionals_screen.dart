@@ -25,18 +25,16 @@ class DevotionalsScreen extends StatelessWidget {
           );
         }
 
-        return ListView.builder(
-          shrinkWrap: true,
-          padding: EdgeInsets.zero,
-          itemBuilder: (BuildContext ctx, int index) {
-            return Container(
-              margin: EdgeInsets.symmetric(vertical: 6),
-              child: DevotionalListItemView(
+        return Padding(
+          padding: const EdgeInsets.all(4),
+          child: Wrap(
+            runSpacing: 4,
+            children: List.generate(snapshot.data.length, (index) {
+              return DevotionalListItemView(
                 devotional: snapshot.data[index],
-              ),
-            );
-          },
-          itemCount: snapshot.data.length,
+              );
+            }),
+          ),
         );
       },
     );

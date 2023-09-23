@@ -6,7 +6,6 @@ import 'package:first_priority_app/models/meeting_role.dart';
 import 'package:first_priority_app/models/user_profile.dart';
 import 'package:first_priority_app/models/week.dart';
 import 'package:first_priority_app/validators.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:first_priority_app/widgets/generic_list.dart';
 import 'package:first_priority_app/widgets/loading_dialog.dart';
 import 'package:first_priority_app/widgets/text/title_text.dart';
@@ -60,37 +59,37 @@ class _MeetingCreateState extends State<MeetingCreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: isEditing ? "Edit Meeting" : "New Meeting",
+      appBar: AppBar(
+        title: Text(isEditing ? "Edit Meeting" : "New Meeting"),
       ),
       body: SingleChildScrollView(
-        child: FutureBuilder(
-          future: Future.wait([
-            _controller.getWeeks(),
-            _controller.getCycles(),
-          ]),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            final weeks = snapshot.data[0] as List<Week>;
-            final cycles = snapshot.data[1] as List<Cycle>;
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: FutureBuilder(
+            future: Future.wait([
+              _controller.getWeeks(),
+              _controller.getCycles(),
+            ]),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              final weeks = snapshot.data[0] as List<Week>;
+              final cycles = snapshot.data[1] as List<Cycle>;
 
-            if (_week == null)
-              _week = isEditing
-                  ? weeks.firstWhere((x) => x.name == widget.meeting.week)
-                  : weeks.first;
+              if (_week == null)
+                _week = isEditing
+                    ? weeks.firstWhere((x) => x.name == widget.meeting.week)
+                    : weeks.first;
 
-            if (_cycle == null)
-              _cycle = isEditing
-                  ? cycles.firstWhere((x) => x.name == widget.meeting.cycle)
-                  : cycles.first;
+              if (_cycle == null)
+                _cycle = isEditing
+                    ? cycles.firstWhere((x) => x.name == widget.meeting.cycle)
+                    : cycles.first;
 
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Form(
+              return Form(
                 key: _formKey,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
@@ -269,9 +268,9 @@ class _MeetingCreateState extends State<MeetingCreate> {
                     ),
                   ],
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:first_priority_app/models/devotional.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,8 +18,8 @@ class _DevotionalsDetailsScreenState extends State<DevotionalsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: widget.devotional.title,
+      appBar: AppBar(
+        title: Text(widget.devotional.title),
       ),
       body: Container(
         child: SingleChildScrollView(

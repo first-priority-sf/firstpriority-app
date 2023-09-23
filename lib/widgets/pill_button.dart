@@ -15,7 +15,7 @@ class PillButton extends StatelessWidget {
       margin: EdgeInsets.all(4),
       child: Material(
         elevation: 2,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(32),
         color: Theme.of(context).dividerColor,
         child: InkWell(
           child: Center(
@@ -29,7 +29,7 @@ class PillButton extends StatelessWidget {
             ),
           ),
           onTap: onTap,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(32),
         ),
       ),
     );

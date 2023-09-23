@@ -1,6 +1,5 @@
 import 'package:first_priority_app/controllers/account.dart';
 import 'package:first_priority_app/validators.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:first_priority_app/widgets/loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -33,8 +32,8 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: "Account",
+      appBar: AppBar(
+        title: Text("Account"),
       ),
       body: Form(
         key: _formKey,

@@ -1,5 +1,4 @@
 import 'package:first_priority_app/controllers/notification.dart';
-import 'package:first_priority_app/widgets/back_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:first_priority_app/models/notification.dart' as model;
@@ -12,8 +11,8 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BackAppBar(
-        title: "Notifications",
+      appBar: AppBar(
+        title: Text("Notifications"),
       ),
       body: FutureBuilder<List<model.Notification>>(
         future: _notificationsStore.list(),
